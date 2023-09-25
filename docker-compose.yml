@@ -1,0 +1,11 @@
+services:
+  product:
+    container_name: store_product
+    build:
+      context: ./services/product-rpc
+      target: dev
+    ports:
+      - 8000:8000
+    volumes:
+      - ./services/product-rpc:/app
+    

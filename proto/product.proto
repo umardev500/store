@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "proto/track.proto";
+
+option go_package = "./proto";
+
+
+service ProductService {
+  rpc CreateProcuct(CreateProductRequest) returns (CreateProductResponse) {} 
+}
+
+// Create model
+message ProductCreate {
+  string name = 1;
+  string description = 2;
+  string price = 3;
+  repeated string image_urls = 4;
+}
+
+// Retrieve model
+message ProductRetrieve {
+  string name = 1;
+  string description = 2;
+  string price = 3;
+  repeated string image_urls = 4;
+  TimeTrack time_track = 5;
+}
+
+message CreateProductRequest {
+  ProductCreate product = 1;
+}
+
+message CreateProductResponse {
+  bool success = 1;
+}
